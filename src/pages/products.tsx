@@ -73,7 +73,7 @@ const Page = () => {
   <>
     <Head>
       <title>
-        Blogs 
+        Architech 
       </title>
     </Head>
    {isauthed && <Box

@@ -31,7 +31,7 @@ export const ProductListToolbar = ({q,handleChange}:any) => {
         sx={{ m: 1 }}
         variant="h4"
       >
-        Blogs
+        Architech
       </Typography>
       <Box sx={{ m: 1 }}>
  
@@ -40,7 +40,7 @@ export const ProductListToolbar = ({q,handleChange}:any) => {
 color="primary"
           variant="contained"
           >
-          Add blog
+          Add Architech
         </Button>
       </Box>
     </Box>

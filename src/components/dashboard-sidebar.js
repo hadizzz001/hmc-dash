@@ -32,7 +32,7 @@ const items = [
   {
     href: '/products',
     icon: (<ShoppingBagIcon fontSize="small" />),
-    title: 'Blogs'
+    title: 'Architech'
   },
   // {
   //   href: '/settings',
@@ -48,7 +48,7 @@ const items = [
   {
     href: '/add',
     icon: (<LibraryAddIcon fontSize="small" />),
-    title: 'Add Blog'
+    title: 'Add Architech'
   },
   // {
   //   href: '/404',
@@ -107,7 +107,7 @@ export const DashboardSidebar = (props) => {
           <Box sx={{px:'1em',pb:'1em'}}>
           
             <Typography fontSize='.8em'>
-            Blogs
+            Architech
             </Typography>
           </Box>
 

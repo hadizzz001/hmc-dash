@@ -18,8 +18,10 @@ const Index = ({ setDisabled }: { setDisabled: any }) => {
 
   const [itemToEDIT, setItemToEdit] = useState<any>({})
   const [init, setInit] = useState({
-    title: '', 
-    description: '', 
+    title: '',
+    weight: '',
+    description: '',
+    category: 'Facades',
     // inStock: false,
     // Manufacturer
     // additionalInfo:'',
@@ -49,7 +51,9 @@ const Index = ({ setDisabled }: { setDisabled: any }) => {
         setInit({
           ...init,
           title: res.title,
-          description: res.description,  
+          description: res.description,
+          category: res.category,
+          weight: res?.weight,
         })
         setUrl(res?.videoUrl);
         setImgs(res.images)
@@ -86,8 +90,10 @@ const Index = ({ setDisabled }: { setDisabled: any }) => {
 
   const resetForm = () => {
     setInit({
-      title: '', 
-      description: '', 
+      title: '',
+      weight: '',
+      description: '',
+      category: 'Facades'
     })
     setUrl('')
   }
@@ -193,7 +199,7 @@ const Index = ({ setDisabled }: { setDisabled: any }) => {
         }}
       >
         {/* <Container maxWidth='sm' > */}
-        {/* {!load &&   <UploadVideo videoUrl={videoUrl} setUrl={setUrl}/>} */}
+
         {!load && <form id='add-form' onSubmit={onSubmit}>
 
 
@@ -212,7 +218,7 @@ const Index = ({ setDisabled }: { setDisabled: any }) => {
             value={init.title}
             variant="filled"
           />
-           
+
           <TextField
             // error={Boolean(formik.touched.price && formik.errors.price)}
             fullWidth
@@ -230,8 +236,62 @@ const Index = ({ setDisabled }: { setDisabled: any }) => {
             value={init.description}
             variant="filled"
           />
-           
-           
+          {/* <TextField
+              // error={Boolean(formik.touched.category && formik.errors.category)}
+              fullWidth
+              // helperText={formik.touched.category && formik.errors.category}
+              label="Category* | ex: microwaves, kitchen.. "
+              margin="normal"
+              name="category"
+              required
+
+              // onBlur={formik.handleBlur}
+              onChange={handleChange}
+              type="text"
+              value={`${init.category ? init.category.toLocaleLowerCase() : ''}`}
+              variant="filled"
+            /> */}
+          {/* <CustomSelect
+              onChange={(val:any)=>console.log('hi',val)}
+            /> */}
+          <>
+            <InputLabel id="demo-simple-select-label">Category</InputLabel>
+            <Select
+              variant='filled'
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              name='category'
+              value={init.category.toLocaleLowerCase()}
+              label="Category"
+              fullWidth
+              defaultValue={'Facades'}
+              onChange={handleChange}
+            >
+              <MenuItem value={'Facades'}>Facades</MenuItem>
+              {['Interiors', 'Landscapes'].map((item: string) => {
+
+                return <MenuItem
+                  key={item}
+                  value={item}>{item}</MenuItem>
+              })}
+            </Select>
+          </>
+
+
+
+          {/* <TextField
+              error={Boolean(formik.touched.password && formik.errors.password)}
+              fullWidth
+              helperText={formik.touched.password && formik.errors.password}
+              label="Password"
+              margin="normal"
+              name="password"
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              type="password"
+              value={formik.values.password}
+              variant="outlined"
+            /> */}
           <AddImage HandleImagesChange={handleImgChange} />
           {mode === 'edit' && <Typography>Note: adding new images might replace the old ones</Typography>}
         </form>}
