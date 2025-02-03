@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/add/UploadVideo.tsx"  ],
+, "src/components/add/UploadVideo.tsx", "src/pages/api/proxy.js"  ],
   "exclude": [
     "node_modules"
   ]
